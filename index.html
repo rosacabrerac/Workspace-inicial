@@ -19,13 +19,45 @@
     }
 
     body {
-      display: -ms-flexbox;
-      display: flex;
+     /* display: -ms-flexbox;
+      display: flex; */
       -ms-flex-align: center;
       align-items: center;
       padding-top: 40px;
       padding-bottom: 40px;
-      background-color: #f5f5f5;
+      background-color: #f8f9fa;
+    }
+
+    h1 {
+      color: #229fbc;
+    }
+
+    .floatRight {
+      float: right;
+      position: relative;
+      height: 100%;
+      width: 200px;
+    }
+
+    .floatLeft {
+      float: left;
+      position: relative;
+      height: 100%;
+      width: 200px;
+    }
+
+    .formulario {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      /*Lo que hace esto es que mueve la "caja" del formulario 50% hacia la izquierda
+      con respecto al body y 50% hacia abajo con respecto al body, también.
+      Para terminar de posicionar el formulario en el centro, lo que hace transform: translate
+      es que mueve la "caja" 50% de su ancho hacia la izquierda (porque es -50%)
+      y 50% de su alto hacia arriba (por ser un valor negativo, como en el caso anterior).
+      Si no se usa transform: translate, lo que hace es posicionar la esquina superior
+      izquierda en el medio de la página.*/
     }
 
     .signin {
@@ -33,23 +65,16 @@
       max-width: 330px;
       padding: 15px;
       margin: auto;
-    }
-
-    .formulario {
-      margin: auto;
+      border-radius: 5px;
+      font-size: 18px;
+      border-color: #90d4e4;
     }
   </style>
 </head>
 
 <body class="text-center">
-  <!--<div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>-->
+  <img src="img/cover_back_lines.gif" class="floatLeft">
+  <img src="img/cover_back_dots.png" class="floatRight">
   <div class="formulario">
     <form action="home.html">
       <h1>Por favor, inicie sesión</h1>
@@ -66,10 +91,9 @@
         Recordarme
       </label>
       <br>
-      <button type="submit" class="signin" onclick="">Ingresar</button>
+      <button type="submit" class="signin">Ingresar</button>
     </form>
   </div>
-
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
