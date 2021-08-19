@@ -3,6 +3,9 @@
 <html lang="en">
 
 <head>
+  <!--Inicio de sesión de Google-->
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -94,6 +97,29 @@
       <button type="submit" class="signin">Ingresar</button>
     </form>
   </div>
+  <!--Inicio de sesión con Google-->
+  <div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-login_uri="https://rosacabrerac.github.io/workspace-inicial"
+     data-auto_prompt="false"></div>
+  </div>
+  <div class="g_id_signin"
+     data-type="standard"
+     data-size="large"
+     data-theme="outline"
+     data-text="sign_in_with"
+     data-shape="rectangular"
+     data-logo_alignment="left">
+  </div>
+  <a href="#" onclick="signOut();">Sign out</a>
+  <script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
 </body>
