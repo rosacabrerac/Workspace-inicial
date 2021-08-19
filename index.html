@@ -4,7 +4,8 @@
 
 <head>
   <!--Inicio de sesión de Google-->
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <meta name="google-signin-client_id" content="288888788982-nd5unb4ihmelujq25u583gkc43cpmfa7.apps.googleusercontent.com">
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -97,7 +98,7 @@
       <button type="submit" class="signin">Ingresar</button>
     </form>
   </div>
-  <!--Inicio de sesión con Google-->
+  <!--Inicio de sesión con Google
   <div id="g_id_onload"
      data-client_id="288888788982-nd5unb4ihmelujq25u583gkc43cpmfa7.apps.googleusercontent.com"
      data-login_uri="https://rosacabrerac.github.io/workspace-inicial/home.html"
@@ -118,6 +119,8 @@
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+  -->
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
   }
 </script>
   <script src="js/init.js"></script>
