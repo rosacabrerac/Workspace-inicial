@@ -23,8 +23,13 @@ function showCategoriesList(array){ //Se crea una función que usa como parámet
             </div>
         </div>
         `
-
+        /*Se le agrega lo que está entre `` y a su vez asigna el valor a la variable, por eso aparece los datos de cada auto
+        y no sólo el del último*/
+        /*Para que aparezcan los datos del JSON en la página se usan los marcadores ${}, que contienen 
+        a category (al cual se le asignó array[i]) y con el punto y el nombre de la propiedad se accede a dicha propiedad
+        */
         document.getElementById("cat-list-contain").innerHTML = htmlContentToAppend;
+        //Con esto se muestra en pantalla lo que se guardó en la variable htmlContentToAppend en el div con id "cat-list-contain"
     }
 }
 
