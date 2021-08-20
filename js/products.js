@@ -40,7 +40,7 @@ function showCategoriesList(array){ //Se crea una función que usa como parámet
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
+    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Se llama a la constante PRODUCTS_URL a la cual le fue asignada la url del JSON
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
