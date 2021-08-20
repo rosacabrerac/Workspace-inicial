@@ -1,10 +1,10 @@
-var categoriesArray = [];
+var categoriesArray = []; // Se crea un array vacío
 
-function showCategoriesList(array){
+function showCategoriesList(array){ //Se crea una función que usa como parámetro "array"
 
-    let htmlContentToAppend = "";
-    for(let i = 0; i < array.length; i++){
-        let category = array[i];
+    let htmlContentToAppend = ""; // Se crea una variable que va almacenar strings, por eso el ""
+    for(let i = 0; i < array.length; i++){ //Se usa un for para pasar los datos del JSON, se inicializa i en 0, el for se va a dar mientras se cumpla la condición y por último aumenta i en 1
+        let category = array[i]; //Se crea la variable category y se le asigna el array con la posición correspondiente a i
 
         htmlContentToAppend += `
         <div class="list-group-item list-group-item-action">
