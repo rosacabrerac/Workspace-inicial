@@ -23,13 +23,13 @@ function showCategoriesList(array){ //Se crea una función que usa como parámet
             </div>
         </div>
         `
-        /*Se le agrega lo que está entre `` y a su vez asigna el valor a la variable, por eso aparece los datos de cada auto
+        /*Se le agrega lo que está entre `` y a su vez asigna el valor a la variable, por eso aparecen los datos de cada auto
         y no sólo el del último*/
         /*Para que aparezcan los datos del JSON en la página se usan los marcadores ${}, que contienen 
         a category (al cual se le asignó array[i]) y con el punto y el nombre de la propiedad se accede a dicha propiedad
         */
         document.getElementById("cat-list-contain").innerHTML = htmlContentToAppend;
-        //Con esto se muestra en pantalla lo que se guardó en la variable htmlContentToAppend en el div con id "cat-list-contain"
+        //Con esto se muestra en la página lo que se guardó en la variable htmlContentToAppend en el div con id "cat-list-contain"
     }
 }
 
@@ -40,7 +40,7 @@ function showCategoriesList(array){ //Se crea una función que usa como parámet
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Se llama a la constante PRODUCTS_URL a la cual le fue asignada la url del JSON
+    getJSONData(PRODUCTS_URL).then(function(resultObj){ //Se llama a la variable que tiene la función expresada getJSONData que tiene como parámetro la constante PRODUCTS_URL a la cual le fue asignada la URL del JSON
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
