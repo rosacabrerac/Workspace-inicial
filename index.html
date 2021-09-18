@@ -49,7 +49,7 @@
       width: 200px;
     }
 
-    .formulario {
+    #formulario {
       position: absolute;
       left: 50%;
       top: 50%;
@@ -71,6 +71,14 @@
       border-radius: 5px;
       font-size: 18px;
       border-color: #90d4e4;
+      cursor: pointer;
+      transition: all .38s ease-in-out;
+    }
+
+    .signin:hover {
+      background: #90d4e4;
+      color: #fff;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -78,11 +86,15 @@
 <body class="text-center">
   <img src="img/cover_back_lines.gif" class="floatLeft">
   <img src="img/cover_back_dots.png" class="floatRight">
-  <div class="formulario">
+  <div id="formulario">
     <form action="home.html">
       <h1>Por favor, inicie sesión</h1>
+      <label for="nombre">
+        <input autocomplete="off" type="text" id="nombre" class="form-control" placeholder="Ingrese su nombre" required>
+      </label>
+      <br>
       <label for="ingresarEmail">
-        <input type="email" id="ingresarEmail" class="form-control" placeholder="Ingrese su correo" required>
+        <input autocomplete="off" type="email" id="ingresarEmail" class="form-control" placeholder="Ingrese su correo" required>
       </label> 
       <br>
       <label for="ingresarPassword">
@@ -94,7 +106,7 @@
         Recordarme
       </label>
       <br>
-      <button type="submit" class="signin">Ingresar</button>
+      <button id="btnSubmit" type="submit" class="signin">Ingresar</button>
     </form>
   </div>
   <!--Inicio de sesión con Google-->

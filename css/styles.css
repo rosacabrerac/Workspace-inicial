@@ -139,3 +139,35 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.raiting {
+  color: #ffc000;
+}
+
+.comentario {
+  color: blue;
+}
+
+#formularioComentario {
+  width: 50%;
+}
+
+#estrellas {
+  width: 6%;
+}
+
+#comentarios {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-bottom: solid 1px silver;
+}
+
+#publicado {
+  padding-top: 5px;
+}
+
+#enviar {
+  background-color: slateblue;
+  border-color: slateblue;
+}
+
