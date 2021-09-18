@@ -1,12 +1,9 @@
-var rating = [];
+var rating = []; //Comienzo creando un array vacío
 
 function showRating(score){
 
-    
-    /*for(let i = 0; i < array.length; i++){ 
-        let comm = array[i];*/
 
-        if(!score) { // Si el número de estrellas es 0, retorna un div vacío
+        if(!score) { // Si el número de estrellas es 0, devuelve un div vacío. Aún así esto no sucede porque todos los comentarios tienen al menos una estrella y los que se pueden publicar desde el comentario tienen la opción de calificar con una estrella o más y siempre con números enteros..
             return `<div></div>`;
         } else {
         return `
@@ -60,9 +57,10 @@ function showRating(score){
         `
                 };
     };
-//};
 
-/* En la comparación de estrellas, el ? significa return, : significa else  */
+/* En la comparación de estrellas, el ? significa "return", : significa "else", ya que utilicé el operador condicional ternario.
+Comparo el "score" del array de comentarios con números del 1 al 5, aumentando de 0,5 en 0,5. Dependiendo del valor, es la cantidad de estrellas
+llenas, medio llenas o vacías. */
 
 document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function(commObj){
