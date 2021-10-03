@@ -24,10 +24,17 @@
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <a class="py-2 d-none d-md-inline-block" id="mostrarNombre" href="#"></a>
+      <div class="dropdown">
+        <a class="py-2 d-none d-md-inline-block" id="mostrarNombre" href="#"></a>
+        <div class="dropdown-content">
+        <a href="my-profile.html">Mi perfil</a>
+        <a href="cart.html">Mi carrito</a>
+        <a id="logOut" href="#">Salir</a>
+      </div>
     </div>
   </nav>
+  
+  </div>
   <main role="main">
     <div class="container mt-5">
       <h3 id="productName"></h3>
@@ -53,10 +60,13 @@
           <p id="category"></p>
         </dd>
 
-        <dt>Imágenes ilustrativas</dt>
+        <dt>Imágenes ilustrativas</dt><br>
         <dd>
-          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-          </div>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery"></div>
+          <!-- <div class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner" id="carrusel">
+            </div>
+          </div>   -->
         </dd>
 
         <dt>Productos relacionados</dt>

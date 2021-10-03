@@ -171,3 +171,84 @@ a.custom-card:hover {
   border-color: slateblue;
 }
 
+
+.dropdown a:link{
+  text-decoration: none;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  border-radius: 5px;
+}
+
+#nombreRelacionado {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+#containerAuto:hover #nombreRelacionado {
+  opacity: 0.8;
+}
+
+#texto {
+  
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: skyblue;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+#texto a {
+  text-decoration: none;
+}
+
+#texto a:hover {
+  text-decoration: none;
+}

@@ -18,7 +18,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
         bienvenida.innerHTML = `Bienvenido/a ` + name + `!`;
     }
     saludo();
+
+
+    const salir = document.getElementById("logOut");
+    salir.onclick = function() {
+      
+      localStorage.removeItem("nombre");
+      redireccion();
+    };
+
   });
+
 /*Para que aparezca el nombre de la persona que inició sesión en todas las páginas, se inserta usando innnerHTML el nombre del usuario
 "trayendolo" del local storage con el método "getItem" */
   
