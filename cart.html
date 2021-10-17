@@ -52,14 +52,62 @@
     </div>
     <div id="usernme"></div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 17/10/2021) y Entrega 7 (Fecha de entrega: 14/11/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <!-- <div class="container p-3"> -->
+    <div class="contenedor-titulo-carrito">
+      <h4 class="titulo-carrito">Carrito de compras</h3>
     </div>
-  </div>
+    <div id="seccion-principal">
+      <div id="mostrarProductosCarrito">
+      </div>
+      
+      <div id="mostrarTotalCarrito">
+        <div class="titulo-total-pagar">
+          <h4>Carrito</h4>
+        </div>
+        <div class="subtotal-subtotal">
+          <h5>Subtotal</h5>
+          <div id="mostrar-subtotal"></div>
+        </div>
+        <div id="formulario-envio">
+          <h4>Dirección de envío</h4>
+          <label for="calle">
+            <input type="text" autocomplete="off" class="form-control" placeholder="Calle">
+          </label>
+          <br>
+          <label for="numero">
+            <input type="text" autocomplete="off" class="form-control" placeholder="Número">
+          </label>
+          <br>
+          <label for="esquina">
+            <input type="text" autocomplete="off" class="form-control" placeholder="Esquina">
+          </label>
+          <br>
+          <label for="pais">
+            <input type="text" autocomplete="off" class="form-control" placeholder="País">
+          </label>
+          <br>
+          <h4>Tipo de envío</h4>
+          <input type="radio" id="premium" name="envio" value="Premium">
+          <label for="premium">Premium - 2 a 5 días (15%)</label>
+          <br>
+          <input type="radio" id="express" name="envio" value="Express">
+          <label for="express">Express - 5 a 8 días (7%)</label>
+          <br>
+          <input type="radio" id="standard" name="envio" value="Standard">
+          <label for="standard">Standard - 12 a 15 días (5%)</label>
+        </div>
+      </div>
+      
+    </div>
+  <footer class="text-muted">
+    <div class="container">
+      <p class="float-right">
+        <a href="#">Volver arriba</a>
+      </p>
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
