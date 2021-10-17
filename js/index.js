@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function(e){
 
       
       const boton = document.getElementById("btnSubmit");
-      
       boton.onclick = function () {
         const name = document.getElementById("nombre").value;
         
