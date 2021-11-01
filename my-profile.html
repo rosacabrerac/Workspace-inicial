@@ -12,6 +12,7 @@
   <script src="js/redireccion.js"></script>
   <script src="js/index.js"></script>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
   <style>
@@ -45,20 +46,72 @@
       <div class="dropdown">
         <a class="py-2 d-none d-md-inline-block" id="mostrarNombre" href="#"></a>
         <div class="dropdown-content">
-        <a href="my-profile.html">Mi perfil</a>
-        <a href="cart.html">Mi carrito</a>
-        <a id="logOut" href="#">Salir</a>
+          <a href="my-profile.html">Mi perfil</a>
+          <a href="cart.html">Mi carrito</a>
+          <a id="logOut" href="#">Salir</a>
+        </div>
+      </div>
+  </nav>
+  <main>
+    <div class="text-center p-4">
+      <h2>Mi Perfil</h2>
+    </div>
+    <div class="container p">
+      <div class="contenedor-perfil">
+        <div class="contenedor-izquierda">
+          <div id="imagen-perfil">
+            <img id="vistaImagen" src="img/cat2.jpg" alt="">
+          </div>
+          <label for="subir-archivo" id="label-editar"><i id="editar-img" class="far fa-edit"></i></label>
+          <input id="subir-archivo" type="file">
+          <h5 class="titulos-perfil">Nombre</h5>
+          <span id="mostrar-nombre" class="span-form">Ingrese su nombre</span>
+          <h5 class="titulos-perfil">Apellido</h5>
+          <span id="mostrar-apellido" class="span-form">Ingrese su apellido</span>
+        </div>
+        <div class="contenedor-derecha">
+          <h5 class="informacion">Información</h5>
+          <h5 class="titulos-perfil">Edad</h5>
+          <span id="mostrar-edad" class="span-form">Ingrese su edad</span>
+          <h5 class="titulos-perfil">e-mail</h5>
+          <span id="mostrar-email" class="span-form">Ingrese su correo</span>
+          <h5 class="titulos-perfil">Teléfono de contacto</h5>
+          <span id="mostrar-tel" class="span-form">Ingrese su teléfono</span>
+          <div class="boton-modificar">
+            <button id="modificar">Modificar</button>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+    <div class="modal-popup" id="mdl">
+      <span id="cerrar-popup">&times;</span>
+      <div class="formulario">
+        <div class="label-input-form">
+          <label for="nombre"> Nombre: </label>
+          <input type="text" name="nombre" id="nombre-usuario" autocomplete="off">
+        </div>
+        <div class="label-input-form">
+          <label for="apellido"> Apellido: </label>
+          <input type="text" name="apellido" id="apellido-usuario" autocomplete="off">
+        </div>
+        <div class="label-input-form">
+          <label for="edad"> Edad: </label>
+          <input type="date" name="edad" id="edad-usuario" autocomplete="off">
+        </div>
+        <div class="label-input-form">
+          <label for="email"> Correo: </label>
+          <input type="email" name="email" id="email-usuario" autocomplete="off">
+        </div>
+        <div class="label-input-form">
+          <label for="tel"> Teléfono: </label>
+          <input type="number" name="tel" id="tel-usuario" autocomplete="off">
+        </div>
+      </div>
+      <div class="boton-guardar">
+        <button onclick="guardarUsuario(), modificarUsuario(), calcularEdad()" id="guardar">Guardar</button>
+      </div>
     </div>
-  </div>
+  </main>
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>

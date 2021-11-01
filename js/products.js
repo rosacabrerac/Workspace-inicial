@@ -6,28 +6,27 @@ var currentSortCriteria = undefined; // "undefined" es el valor dado a las varia
 var costoMin = undefined;
 var costoMax = undefined;
 
-function ordenarProductos(criterio, array){
+function ordenarProductos(criterio, array) {
     let resultado = [];
-    if (criterio === ORDENAR_PRECIO_ASC)
-    {
-        resultado = array.sort(function(a, b) {
-            if ( a.cost < b.cost ){ return -1; }
-            if ( a.cost > b.cost ){ return 1; }
+    if (criterio === ORDENAR_PRECIO_ASC) {
+        resultado = array.sort(function (a, b) {
+            if (a.cost < b.cost) { return -1; }
+            if (a.cost > b.cost) { return 1; }
             return 0;
         });
-    }else if (criterio === ORDENAR_PRECIO_DESC){
-        resultado = array.sort(function(a, b) {
-            if ( a.cost > b.cost ){ return -1; }
-            if ( a.cost < b.cost ){ return 1; }
+    } else if (criterio === ORDENAR_PRECIO_DESC) {
+        resultado = array.sort(function (a, b) {
+            if (a.cost > b.cost) { return -1; }
+            if (a.cost < b.cost) { return 1; }
             return 0;
         });
-    }else if (criterio === ORDENAR_POR_RELEV){
-        resultado = array.sort(function(a, b) {
+    } else if (criterio === ORDENAR_POR_RELEV) {
+        resultado = array.sort(function (a, b) {
             let aSold = parseInt(a.soldCount);
             let bSold = parseInt(b.soldCount);
 
-            if ( aSold > bSold ){ return -1; }
-            if ( aSold < bSold ){ return 1; }
+            if (aSold > bSold) { return -1; }
+            if (aSold < bSold) { return 1; }
             return 0;
         });
     }
@@ -46,35 +45,36 @@ que b, 0 si a y b son iguales o un valor positivo si a va después de b. Simplem
 serán comparados y según el resultado es el orden en que se van posicionando en el array que se guarda (es asignado) en resultado.*/
 
 
-function showCategoriesList(){
+function showCategoriesList() {
 
     let htmlContentToAppend = "";
-    for(let i = 0; i < currentCategoriesArray.length; i++){
-        let category = currentCategoriesArray[i];
+    for (let i = 0; i < currentCategoriesArray.length; i++) {
+        let product = currentCategoriesArray[i];
 
-        if (((costoMin == undefined) || (costoMin != undefined && parseInt(category.cost) >= costoMin)) &&
-            ((costoMax == undefined) || (costoMax != undefined && parseInt(category.cost) <= costoMax))){
+        if (((costoMin == undefined) || (costoMin != undefined && parseInt(product.cost) >= costoMin)) &&
+            ((costoMax == undefined) || (costoMax != undefined && parseInt(product.cost) <= costoMax))) {
 
-                htmlContentToAppend += `
-                <div class="list-group-item list-group-item-action">
-                    <div class="row">
-                        <div class="col-3">
-                            <a href="product-info.html"><img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail"></a>
-                        </div>
+            htmlContentToAppend += `
+                <div class="col-md-4">
+                    <div class="card mb-4 shadow-sm custom-card">
+                            <a href="product-info.html"><img src="${product.imgSrc}" alt="${product.description}" class="img-thumbnail"></a>
                         <div class="col">
                             <div class="d-flex w-100 justify-content-between">
-                                <h4 class="mb-1">`+ category.name +`</h4>
+                                <h4 class="mb-1">${product.name}</h4>
                             </div>
-                            <div>${category.description}</div>
-                            <div>${category.currency} ${category.cost}</div>
-                            <div>Vehículos vendidos de este modelo: ${category.soldCount}</div>
+                            <div>${product.description}</div>
+                            <hr>
+                            <div>Precio: ${product.currency} ${product.cost}</div>
+                            <hr>
+                            <div>Vehículos vendidos de este modelo: ${product.soldCount}</div>
+                            <br>
                         </div>
                     </div>
                 </div>
                 `
         }
 
-        document.getElementById("cat-list-contain").innerHTML = htmlContentToAppend;
+        document.getElementById("prod-list-contain").innerHTML = htmlContentToAppend;
     }
 }
 /*El condicional dentro de la función para mostrar nuestros productos es para el filtrado de precios ingresados por el usuario.
@@ -82,10 +82,10 @@ Si la variable sigue sin tener un valor asignado *O* costoMin tiene asignado un 
 un string por estar en el array y por eso es necesario usar la función parseInt para convertirlo en un entero) es mayor o igual/menor o igual
 a costoMax, se lleva a cabo el resto de la función. */
 
-function sortAndShowCategories(sortCriteria, categoriesArray){
+function sortAndShowCategories(sortCriteria, categoriesArray) {
     currentSortCriteria = sortCriteria;
 
-    if(categoriesArray != undefined){
+    if (categoriesArray != undefined) {
         currentCategoriesArray = categoriesArray;
     }
 
@@ -108,27 +108,27 @@ producto del cual se haya buscado el nombre.
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function(e){
-    getJSONData(PRODUCTS_URL).then(function(resultObj){
-        if (resultObj.status === "ok"){
+document.addEventListener("DOMContentLoaded", function (e) {
+    getJSONData(PRODUCTS_URL).then(function (resultObj) {
+        if (resultObj.status === "ok") {
             sortAndShowCategories(ORDENAR_PRECIO_ASC, resultObj.data); //Si todo está bien, se muestran los productos en orden ascendente
         }
     });
-    
 
-    document.getElementById("sortAsc").addEventListener("click", function(){ //Funciones que se llevan a cabo al hacer click en el botón correspondiente
+
+    document.getElementById("sortAsc").addEventListener("click", function () { //Funciones que se llevan a cabo al hacer click en el botón correspondiente
         sortAndShowCategories(ORDENAR_PRECIO_ASC);
     });
 
-    document.getElementById("sortDesc").addEventListener("click", function(){
+    document.getElementById("sortDesc").addEventListener("click", function () {
         sortAndShowCategories(ORDENAR_PRECIO_DESC);
     });
 
-    document.getElementById("sortByCount").addEventListener("click", function(){
+    document.getElementById("sortByCount").addEventListener("click", function () {
         sortAndShowCategories(ORDENAR_POR_RELEV);
     });
 
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
+    document.getElementById("clearRangeFilter").addEventListener("click", function () {
         document.getElementById("rangeFilterCountMin").value = "";
         //Para limpiar los campos donde se ingresa el precio, se asigna a éstos un string vacío, permitiendo ver nuevamente el placeholder
         document.getElementById("rangeFilterCountMax").value = "";
@@ -139,23 +139,23 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
-    document.getElementById("rangeFilterCount").addEventListener("click", function(){
+    document.getElementById("rangeFilterCount").addEventListener("click", function () {
         //Obtengo el mínimo y máximo de los intervalos para filtrar por cantidad
         //de productos por categoría.
         costoMin = document.getElementById("rangeFilterCountMin").value;
         costoMax = document.getElementById("rangeFilterCountMax").value;
 
-        if ((costoMin != undefined) && (costoMin != "") && (parseInt(costoMin)) >= 0){
+        if ((costoMin != undefined) && (costoMin != "") && (parseInt(costoMin)) >= 0) {
             costoMin = parseInt(costoMin);
         }
-        else{
+        else {
             costoMin = undefined;
         }
 
-        if ((costoMax != undefined) && (costoMax != "") && (parseInt(costoMax)) >= 0){
+        if ((costoMax != undefined) && (costoMax != "") && (parseInt(costoMax)) >= 0) {
             costoMax = parseInt(costoMax);
         }
-        else{
+        else {
             costoMax = undefined;
         }
 
@@ -167,10 +167,10 @@ const searchBar = document.getElementById("searchBar");
 
 searchBar.addEventListener("keyup", (e) => {
     const searchString = e.target.value.toLowerCase();
-    
-    const filteredStrings = currentCategoriesArray.filter( producto => {
+
+    const filteredStrings = currentCategoriesArray.filter(producto => {
         return producto.name.toLowerCase().includes(searchString);
     });
-    
+
     showCategoriesList(filteredStrings);
 });

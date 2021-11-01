@@ -17,10 +17,12 @@ document.addEventListener("DOMContentLoaded", function(e){
       const boton = document.getElementById("btnSubmit");
       boton.onclick = function () {
         const name = document.getElementById("nombre").value;
+        const email = document.getElementById("ingresarEmail").value;
         
         if(name != "") {
-      
+          
           localStorage.setItem("nombre", name);
+          localStorage.setItem("email", email);
         
         }
       };

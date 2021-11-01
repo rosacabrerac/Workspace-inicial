@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
       let bienvenida = document.getElementById("mostrarNombre");
       let name = localStorage.getItem("nombre");
   
-        bienvenida.innerHTML = `Bienvenido/a ` + name + `!`;
+        bienvenida.innerHTML = `Hola, ` + name + `!`;
     }
     saludo();
 
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     salir.onclick = function() {
       
       localStorage.removeItem("nombre");
+      localStorage.removeItem("email");
       redireccion();
     };
 

@@ -40,6 +40,8 @@ function mostrarCarrito(array) {
         document.getElementById("mostrarProductosCarrito").innerHTML = productosCarrito;
     }
 
+
+
 }
 
 function precioSubtotal() {
@@ -50,7 +52,7 @@ function precioSubtotal() {
 
     for (i = 0; i < precio.length; i++) {
 
-        document.getElementById(`precioPorCantidad${i}`).innerHTML = parseFloat(precio[i].innerHTML) * cantidad[i].value;
+        document.getElementById("precioPorCantidad" + i).innerHTML = parseFloat(precio[i].innerHTML) * cantidad[i].value;
         subtotal += parseFloat(precio[i].innerText) * cantidad[i].value;
 
     };
