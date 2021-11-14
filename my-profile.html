@@ -46,11 +46,11 @@
       <div class="dropdown">
         <a class="py-2 d-none d-md-inline-block" id="mostrarNombre" href="#"></a>
         <div class="dropdown-content">
-          <a href="my-profile.html">Mi perfil</a>
-          <a href="cart.html">Mi carrito</a>
-          <a id="logOut" href="#">Salir</a>
-        </div>
+        <a href="my-profile.html">Mi perfil</a>
+        <a href="cart.html">Mi carrito</a>
+        <a id="logOut" href="#">Salir</a>
       </div>
+    </div>
   </nav>
   <main>
     <div class="text-center p-4">
@@ -60,7 +60,7 @@
       <div class="contenedor-perfil">
         <div class="contenedor-izquierda">
           <div id="imagen-perfil">
-            <img id="vistaImagen" src="img/cat2.jpg" alt="">
+            <img id="vistaImagen" src="img/cat2.jpg" alt=" ">
           </div>
           <label for="subir-archivo" id="label-editar"><i id="editar-img" class="far fa-edit"></i></label>
           <input id="subir-archivo" type="file">
@@ -84,31 +84,31 @@
       </div>
     </div>
     <div class="modal-popup" id="mdl">
-      <span id="cerrar-popup">&times;</span>
       <div class="formulario">
+        <span id="cerrar-popup">&times;</span>
         <div class="label-input-form">
           <label for="nombre"> Nombre: </label>
-          <input type="text" name="nombre" id="nombre-usuario" autocomplete="off">
+            <input type="text" name="nombre" id="nombre-usuario" autocomplete="off">
         </div>
         <div class="label-input-form">
           <label for="apellido"> Apellido: </label>
-          <input type="text" name="apellido" id="apellido-usuario" autocomplete="off">
+            <input type="text" name="apellido" id="apellido-usuario" autocomplete="off">
         </div>
         <div class="label-input-form">
           <label for="edad"> Edad: </label>
-          <input type="date" name="edad" id="edad-usuario" autocomplete="off">
+            <input type="date" name="edad" id="edad-usuario" autocomplete="off">
         </div>
         <div class="label-input-form">
           <label for="email"> Correo: </label>
-          <input type="email" name="email" id="email-usuario" autocomplete="off">
+            <input type="email" name="email" id="email-usuario" autocomplete="off">
         </div>
         <div class="label-input-form">
           <label for="tel"> Teléfono: </label>
-          <input type="number" name="tel" id="tel-usuario" autocomplete="off">
+            <input type="number" name="tel" id="tel-usuario" autocomplete="off">
         </div>
-      </div>
-      <div class="boton-guardar">
-        <button onclick="guardarUsuario(), modificarUsuario(), calcularEdad()" id="guardar">Guardar</button>
+        <div class="boton-guardar">
+          <button onclick="guardarUsuario(), modificarUsuario(), calcularEdad()" id="guardar">Guardar</button>
+        </div>
       </div>
     </div>
   </main>

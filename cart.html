@@ -11,8 +11,11 @@
   
   <script src="js/redireccion.js"></script>
   <script src="js/index.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="sweetalert2.min.css">
 
   <style>
     .bd-placeholder-img {
@@ -66,38 +69,107 @@
         </div>
         <div class="subtotal-subtotal">
           <h5>Subtotal</h5>
-          <div id="mostrar-subtotal"></div>
+          <div class="moneda-precio">
+            <p>UYU</p>
+            <div id="mostrar-subtotal"></div>
+          </div>
         </div>
         <div id="formulario-envio">
           <h4>Dirección de envío</h4>
-          <label for="calle">
-            <input type="text" autocomplete="off" class="form-control" placeholder="Calle">
-          </label>
+          <p>Complete todos los campos.</p>
+          <div class="campos-input">
+            <label for="calle"></label>
+            <input type="text" required autocomplete="off" class="form-control input-dire" id="calle" placeholder="Calle">
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+          </div>
           <br>
-          <label for="numero">
-            <input type="text" autocomplete="off" class="form-control" placeholder="Número">
-          </label>
+          <div class="campos-input">
+            <label for="numero"></label>
+            <input type="number" required autocomplete="off" class="form-control input-dire" id="numero" placeholder="Número">
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+          </div>
           <br>
-          <label for="esquina">
-            <input type="text" autocomplete="off" class="form-control" placeholder="Esquina">
-          </label>
+          <div class="campos-input">
+            <label for="esquina"></label>
+            <input type="text" required autocomplete="off" class="form-control input-dire" id="esquina" placeholder="Esquina">
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i>
+          </div>
           <br>
-          <label for="pais">
-            <input type="text" autocomplete="off" class="form-control" placeholder="País">
-          </label>
+          <div class="campos-input">
+            <label for="pais"></label>
+            <input type="text" required autocomplete="off" class="form-control input-dire" id="pais" placeholder="País">
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation-circle"></i> 
+          </div>
           <br>
           <h4>Tipo de envío</h4>
-          <input type="radio" id="premium" name="envio" value="Premium">
-          <label for="premium">Premium - 2 a 5 días (15%)</label>
+          <input type="radio" id="standard" name="envio" value="standard" onclick="verificarEnvio()">
+          <label for="standard">Standard - 12 a 15 días (5%)</label>
           <br>
-          <input type="radio" id="express" name="envio" value="Express">
+          <input type="radio" id="express" name="envio" value="express" onclick="verificarEnvio()">
           <label for="express">Express - 5 a 8 días (7%)</label>
           <br>
-          <input type="radio" id="standard" name="envio" value="Standard">
-          <label for="standard">Standard - 12 a 15 días (5%)</label>
+          <input type="radio" id="premium" name="envio" value="premium" onclick="verificarEnvio()">
+          <label for="premium">Premium - 2 a 5 días (15%)</label>
         </div>
+        <div id="boton-pagar"><button onclick="envio()" id="btn-pagar">Finalizar compra</button></div>
       </div>
-      
+    </div>
+    <div class="modal-carrito" id="mdl">
+      <div id="metodos-pago">
+        <h5>Elige el método de pago</h5>
+        <div class="input-label">
+          <input type="radio" id="input-credito" name="pago" value="credito" onclick="pagarTodo()">
+          <label for="input-credito">Tarjeta de Crédito</label>
+        </div>
+        <div id="credito-wrapper">
+          <div id="tarjetas">
+            <label for="fecha">Fecha de expiración</label>
+            <input type="date" name="fecha" class="form-control">
+            <input type="number" name="credito" class="form-control datos-tarjeta" placeholder="Número de tarjeta">
+            <input type="number" name="credito" class="form-control datos-tarjeta" placeholder="Código de seguridad">
+          </div>
+        </div>
+        <div class="input-label">
+          <input type="radio" id="input-debito" name="pago" value="debito" onclick="pagarTodo()">
+          <label for="input-debito">Tarjeta de Débito</label>
+        </div>
+        <div id="debito-wrapper">
+          <div id="tarjetas">
+            <label for="fecha">Fecha de expiración</label>
+            <input type="date" name="fecha" class="form-control">
+            <input type="number" name="debito" class="form-control datos-tarjeta" placeholder="Número de tarjeta">
+            <input type="number" name="debito" class="form-control datos-tarjeta" placeholder="Código de seguridad">
+          </div>
+        </div>
+        <div>
+          <input type="radio" id="redes-cobranza" name="pago" value="redes-cobranza" onclick="pagarTodo()">
+          <label for="redes-cobranza">Redes de Cobranza</label>
+        </div>
+        <div id="cobranza-wrapper">
+          <div id="redes-cobranza">
+            <label for="abitab">
+              <input type="radio" name="cobranza" id="abitab">
+              <img src="img/abitab.png" alt="Logo de Abitab">
+            </label>
+            <label for="red-pagos">
+              <input type="radio" name="cobranza" id="red-pagos">
+              <img src="img/redpagos.png" alt="Logo de Red Pagos">
+            </label>
+          </div>
+        </div>
+        <div id="sin-envio"></div>
+        <div class="misma-linea">
+          <span>Subtotal:</span><div id="monto"></div>
+        </div>
+        <div class="misma-linea">
+          <span>Precio con envío:</span><div id="sub-envio"></div>
+        </div>
+        <button id="pay" onclick="compraExitosa()">Pagar</button>
+      </div>
     </div>
   <footer class="text-muted">
     <div class="container">
@@ -116,11 +188,13 @@
       <div></div>
     </div>
   </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/cart.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

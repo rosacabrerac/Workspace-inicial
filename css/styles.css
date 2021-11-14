@@ -1,17 +1,20 @@
-.jumbotron, .card-body, .container, .site-header{
-    font-family: 'Raleway', serif !important;
+.jumbotron,
+.card-body,
+.container,
+.site-header {
+  font-family: "Raleway", serif !important;
 }
 
-.jumbotron .display-4{
-    font-weight: bold;
+.jumbotron .display-4 {
+  font-weight: bold;
 }
 
 .jumbotron {
   height: 50vh;
   padding: 5em inherit;
   margin-bottom: 0;
-  background-color: #53C0FB;
-  background: url('../img/cover_back.png');
+  background-color: #53c0fb;
+  background: url("../img/cover_back.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -41,7 +44,7 @@
   text-shadow: 1px 1px 2px grey;
 }
 
-.jumbotron .lead{
+.jumbotron .lead {
   font-size: 38px;
 }
 
@@ -51,12 +54,12 @@ footer {
 }
 
 footer p {
-  margin-bottom: .25rem;
+  margin-bottom: 0.25rem;
 }
 
 .site-header a {
   color: white;
-  transition: ease-in-out color .15s;
+  transition: ease-in-out color 0.15s;
 }
 
 .light-text {
@@ -67,15 +70,15 @@ footer p {
   color: black;
 }
 
-.dropzone{
-  border: 2px dashed #0087F7;
+.dropzone {
+  border: 2px dashed #0087f7;
   border-radius: 5px;
   background: white;
 }
 
-.alert{
+.alert {
   position: fixed;
-  top:80px;
+  top: 80px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -86,7 +89,7 @@ footer p {
   position: relative;
   width: 64px;
   height: 64px;
-  top:50%;
+  top: 50%;
   left: 50%;
 }
 .lds-ring div {
@@ -119,13 +122,13 @@ footer p {
   }
 }
 
-#spinner-wrapper{
+#spinner-wrapper {
   position: fixed;
-  background-color: rgba(0,0,0,0.5);
-  width:100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   height: 100%;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   z-index: 1021;
   display: none;
 }
@@ -171,17 +174,14 @@ a.custom-card:hover {
   border-color: slateblue;
 }
 
-
-.dropdown a:link{
+.dropdown a:link {
   text-decoration: none;
 }
-
 
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 
 .dropdown-content {
   border-radius: 5px;
@@ -189,7 +189,7 @@ a.custom-card:hover {
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -219,7 +219,7 @@ a.custom-card:hover {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .5s ease;
+  transition: 0.5s ease;
 }
 
 #containerAuto:hover #nombreRelacionado {
@@ -227,7 +227,6 @@ a.custom-card:hover {
 }
 
 #texto {
-
   font-weight: bold;
   font-size: 20px;
   position: absolute;
@@ -291,8 +290,19 @@ a.custom-card:hover {
   margin-left: 10px;
 }
 
+.moneda-precio {
+  display: flex;
+  justify-content: center;
+  margin-bottom: -10px;
+}
+
+.moneda-precio p {
+  font-size: 24px;
+  margin-right: 5px;
+}
+
 #mostrar-subtotal {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 400;
   text-align: center;
 }
@@ -399,9 +409,9 @@ a.custom-card:hover {
   margin-top: 5px;
 }
 
-
 #formulario-envio {
   padding-left: 10px;
+  position: relative;
 }
 
 #formulario-envio h4 {
@@ -410,7 +420,225 @@ a.custom-card:hover {
   font-weight: 400;
 }
 
+#formulario-envio p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.campos-input {
+  display: flex;
+}
+
+.completo input {
+  border-color: #2ecc71;
+}
+
+.incompleto input {
+  border-color: #e74c3c;
+}
+
+.campos-input i {
+  padding-top: 10px;
+  padding-left: 5px;
+}
+
+#formulario-envio .completo i.fa-check-circle {
+  visibility: visible;
+  color: #2ecc71;
+}
+
+#formulario-envio .incompleto i.fa-exclamation-circle {
+  visibility: visible;
+  color: #e74c3c;
+}
+
+.input-dire {
+  width: 95%;
+}
+
+#formulario-envio i {
+  visibility: hidden;
+  position: absolute;
+  left: 85%;
+}
+
+#numero::-webkit-outer-spin-button,
+#numero::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#boton-pagar {
+  display: none;
+  background-color: white;
+  height: 52px;
+  border-top: 2px white solid;
+}
+
+#boton-pagar button {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+  font-size: 24px;
+  border-color: rgb(240, 137, 119);
+  color: #e41534;
+  outline: none;
+}
+
+.quitar {
+  margin-top: 8%;
+}
+
+.boton-quitar {
+  height: 36px;
+  border-radius: 7px;
+  border-color: white;
+  color: white;
+  background-color: rgb(228, 99, 99);
+}
+
+.boton-quitar:focus {
+  outline: none;
+}
+
+/* COMIENZO MODAL CARRITO */
+
+.modal-carrito {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+#metodos-pago {
+  height: 75%;
+  width: 30%;
+  margin: 5% auto;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+#metodos-pago h5 {
+  padding: 15px 0 10px 30px;
+}
+
+#metodos-pago input{
+  margin-left: 20px;
+}
+
+.input-label {
+  display: flex;
+}
+
+#input-credito {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+#monto {
+  margin-left: 5px;
+}
+
+#sub-envio {
+  margin-left: 5px;
+}
+
+.misma-linea {
+  display: flex;
+}
+
+#credito-wrapper {
+  display: none;
+}
+
+#tarjetas {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 0 15px 20px;
+}
+
+#tarjetas label {
+  margin-left: 20px;
+  margin-bottom: -1px;
+}
+
+#tarjetas input {
+  margin-bottom: 5px;
+}
+
+.datos-tarjeta::-webkit-outer-spin-button,
+.datos-tarjeta::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#debito-wrapper, #cobranza-wrapper {
+  display:none;
+}
+
+#input-debito {
+  margin-right: 5px;
+  margin-top: 5px;
+}
+
+#abitab, #red-pagos {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#redes-cobranza img {
+  cursor: pointer;
+  height: 50px;
+  padding-left: 30px;
+  opacity: 0.5;
+}
+
+#abitab:checked + img, #red-pagos:checked + img {
+  opacity: 1;
+}
+
+#sin-envio {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  color: #e41534;
+  font-size: 21px;
+}
+
+.misma-linea span, #monto, #sub-envio {
+  font-size: 20px;
+}
+
+.misma-linea span {
+  margin-left: 20px;
+}
+
+#pay {
+  display: none;
+  width: 30%;
+  height: 45px;
+  font-size: 21px;
+  border-radius: 7px;
+  margin-top: 10px;
+  margin-left: 35%;
+  background-color: rgb(78, 177, 177);
+  border-color: rgb(61, 165, 165);
+  color: rgb(7, 39, 39);
+  outline: none;
+}
+
+/* FIN MODAL CARRITO */
 /* FIN CARRITO DE COMPRAS */
+
 
 /* COMIENZO PERFIL */
 
@@ -425,7 +653,13 @@ a.custom-card:hover {
 .contenedor-izquierda {
   height: 100%;
   width: 30%;
-  background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#f29263),
+    to(#ee5a6f)
+  );
   background: linear-gradient(to right, #ee5a6f, #f29263);
   border-radius: 10px;
 }
@@ -499,7 +733,7 @@ a.custom-card:hover {
   background-color: #f38999;
   outline: none;
   border-color: violet;
-  transition: all .38s ease-in-out;
+  transition: all 0.38s ease-in-out;
 }
 
 #modificar:hover {
@@ -507,19 +741,19 @@ a.custom-card:hover {
   color: white;
 }
 
- .modal-popup {
+.modal-popup {
   display: none;
   position: fixed;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
   width: 35%;
-  height: 40%;
+  height: 45%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
   overflow: auto;
-  box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+  box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.2);
 }
 
 .formulario {
@@ -564,11 +798,11 @@ a.custom-card:hover {
   display: table-cell;
 }
 
-.formulario input{
+.formulario input {
   margin-left: 20px;
   width: 300px;
   display: table-cell;
-} 
+}
 
 .boton-guardar {
   margin-left: 40%;
@@ -583,7 +817,7 @@ a.custom-card:hover {
   background-color: #f38999;
   outline: none;
   border-color: violet;
-  transition: all .38s ease-in-out;
+  transition: all 0.38s ease-in-out;
 }
 
 #guardar:hover {

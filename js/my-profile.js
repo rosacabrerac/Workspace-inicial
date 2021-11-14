@@ -1,7 +1,7 @@
 
 // const modificar = document.getElementById("modificar");
 // modificar.onclick = function() {
-    
+
 // }
 
 
@@ -31,27 +31,19 @@ let modificar = document.getElementById("modificar");
 let cerrar = document.getElementById("cerrar-popup");
 let guardar = document.getElementById("guardar")
 
-modificar.onclick = function() {
+modificar.onclick = function () {
     modal.style.display = "block";
 }
 
-cerrar.onclick = function() {
+cerrar.onclick = function () {
     modal.style.display = "none";
 }
 
-// window.onclick = function(event) {
-//     if(event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
-
-
-//  window.addEventListener("mouseup", function() {
-//      if(event.target != modal && event.target.parentNode != modal) {
-//          modal.style.display = "none";
-//      }
-
-//  })
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
 
 /* FIN MODAL */
 
@@ -65,7 +57,7 @@ function guardarUsuario() {
         apellido: document.getElementById("apellido-usuario").value,
         edad: document.getElementById("edad-usuario").value,
         email: document.getElementById("email-usuario").value,
-        tel: document.getElementById("tel-usuario").value 
+        tel: document.getElementById("tel-usuario").value
     }
 
     localStorage.setItem("datos", JSON.stringify(datosObj));
@@ -87,9 +79,9 @@ function modificarUsuario() {
 
 /* COMIENZO CÁLCULO EDAD */
 
-const meses = [31,28,31,30,31,30,31,31,30,31,30,31];
+const meses = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-function calcularEdad(){
+function calcularEdad() {
     let hoy = new Date();
     let fechaInput = new Date(document.getElementById("edad-usuario").value);
     let mesNacimiento, diaNacimiento, anioNacimiento;
@@ -107,37 +99,37 @@ function calcularEdad(){
 
     anioNacimiento = anioActual - detallesEdad.year;
 
-    if(mesActual >= detallesEdad.month){
+    if (mesActual >= detallesEdad.month) {
         mesNacimiento = mesActual - detallesEdad.month;
     }
-    else{
+    else {
         anioNacimiento--;
         mesNacimiento = 12 + mesActual - detallesEdad.month;
     }
 
-    if(diaActual >= detallesEdad.date){
+    if (diaActual >= detallesEdad.date) {
         diaNacimiento = diaActual - detallesEdad.date;
     }
-    else{
+    else {
         mesNacimiento--;
         let days = meses[mesActual - 2];
         diaNacimiento = days + diaActual - detallesEdad.date;
-        if(mesNacimiento < 0){
+        if (mesNacimiento < 0) {
             mesNacimiento = 11;
             anioNacimiento--;
         }
     }
 
-    
+
     mostrarResultado(anioNacimiento);
 }
 
-function mostrarResultado(anioCumple){
+function mostrarResultado(anioCumple) {
     document.getElementById("mostrar-edad").innerHTML = anioCumple;
 }
 
 function chequeoBiciesto(anio) {
-    if(anio % 4 == 0 || (anio % 100 == 0 && anio % 400 == 0)){
+    if (anio % 4 == 0 || (anio % 100 == 0 && anio % 400 == 0)) {
         meses[1] = 29;
     } else {
         meses[1] = 28;
@@ -151,17 +143,17 @@ function chequeoBiciesto(anio) {
 const inputImagen = document.querySelector("#subir-archivo");
 var imagenSubida = "";
 
-inputImagen.addEventListener("change", function() {
+inputImagen.addEventListener("change", function () {
     const reader = new FileReader();
     reader.addEventListener("load", () => {
-        imagenSubida = reader.result; //Devuelve el contenido del archivo
+        imagenSubida = reader.result;
         localStorage.setItem("imagen", imagenSubida)
         document.querySelector("#imagen-perfil").style.backgroundImage = `url(${imagenSubida})`;
         subirImagen();
     })
-    
-    reader.readAsDataURL(this.files[0]); //En este caso el resultado es un string con una URL que representa al archivo
-    
+
+    reader.readAsDataURL(this.files[0])
+
 })
 
 function subirImagen() {
@@ -178,7 +170,7 @@ function subirImagen() {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) { 
+document.addEventListener("DOMContentLoaded", function (e) {
     subirImagen();
     modificarUsuario();
 });
